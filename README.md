@@ -1,4 +1,7 @@
 # Google_NDB_Emulator
+
+Here is a YouTube video about this project https://youtu.be/4_zZzEzeuKE
+
 This allows you to test your Google NDB code locally in a development environment rather working with your actual database. 
 It lets you work with the Google Cloud Datastore emulator to test your Google NDB code.
 
