@@ -2,12 +2,12 @@
 
 Here is a YouTube video about this project https://youtu.be/4_zZzEzeuKE
 
-This allows you to test your Google NDB code locally in a development environment rather working with your actual database. 
+This allows you to test your Google NDB code locally in a development environment rather than working with your actual database. 
 It lets you work with the Google Cloud Datastore emulator to test your Google NDB code.
 
 Running the example program:
 
-  note: when refering to the terminal it should be your command line terminal. Dont use powershell. For info on how to run the command line on Visual Studio Code go here https://docs.google.com/document/d/1bbWogGdQ48rMJFB9Wxvtt7XWw5SUfP07BVl6cHk69hk/edit?usp=sharing
+  note: when referring to the terminal it should be your command line terminal. Don’t use PowerShell. For info on how to run the command line on Visual Studio Code go here https://docs.google.com/document/d/1bbWogGdQ48rMJFB9Wxvtt7XWw5SUfP07BVl6cHk69hk/edit?usp=sharing
 
   Step 1: Download NDBEmulator folder or the main.py, the requirements.txt, and the app.yaml individually and open it whatever editor you use.
 
@@ -43,7 +43,7 @@ Running the example program:
       (press return)
       flask run
 
-     Alternatively you can run:
+     Alternatively, you can run:
      python3 main.py
 
      or just
@@ -68,15 +68,15 @@ Running the example program:
 
    Step 14: in your browser go to http://127.0.0.1:8082/
 
-   Step 15: in the search box in the upper left hand conner type:
+   Step 15: in the search box in the upper left-hand corner type:
         test
 
     Step16:
-       hit refresh and it should show you the data saved in your local develeopment database
+       hit refresh and it should show you the data saved in your local development database
        
- Adding the necissary code to your existing Flask Google NDB project:
+ Adding the necessary code to your existing Flask Google NDB project:
  
-   note: when refering to the terminal it should be your command line terminal. Dont use powershell.
+   note: when referring to the terminal it should be your command line terminal. Don’t use PowerShell.
 
   Step 1: To your existing code add:  
         import mock
@@ -129,7 +129,7 @@ Running the example program:
       (press return)
       flask run
 
-     Alternatively you can run:
+     Alternatively, you can run:
         python3 main.py
 
      or just
@@ -155,11 +155,12 @@ Running the example program:
 
    Step 14: in your browser go to http://127.0.0.1:8082/
 
-   Step 15: in the search box in the upper left hand conner type:
+   Step 15: in the search box in the upper left-hand corner type:
         test
 
     Step16:
-       hit refresh and it should show you the data saved in your local develeopment database
+       hit refresh and it should show you the data saved in your local development database
 
+	
 
-
+![image](https://user-images.githubusercontent.com/61996426/127399471-c1a54238-2d28-4ecb-83bd-f656e971df93.png)
