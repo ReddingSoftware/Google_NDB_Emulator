@@ -64,10 +64,80 @@ class Test(BaseHandler):
                 self.response.write(a.name)
             self.response.write(html2)
 
+            
+class NDBViewer(BaseHandler):
+    def get(self):
+        client = ndb.Client(project="test", credentials=credentials)
+        with client.context():
+
+            self.response.write(html1)
+            daKinds=metadata.get_kinds()
+            self.response.write("""
+            Please choose the kind that you would like to view
+            <form method="post" action="/NDBViewer">
+                <select name="Kind">
+            """)
+            for a in daKinds:
+                self.response.write("<option value='{a}'>{a}</option>".format(a=str(a)))
+            self.response.write("""
+            </select>
+            <input type="submit">
+            </form>
+            """)
+            self.response.write(html2)
+    def post(self):
+        client = ndb.Client(project="test", credentials=credentials)
+        with client.context():
+
+            self.response.write(html1)
+            daKinds=metadata.get_kinds()
+            self.response.write("""
+            <style>
+            table, th, td {
+  border: 1px solid black;
+}
+            </style>
+            Please choose the kind that you would like to view
+            <form method="post" action="/NDBViewer">
+                <select name="Kind">
+            """)
+            for a in daKinds:
+                self.response.write("<option value='{a}'>{a}</option>".format(a=a))
+            self.response.write("""
+            <input type="submit">
+            </select>
+            </form>
+            """)
+            disKind=self.request.get("Kind")
+            daprops=metadata.get_properties_of_kind(disKind)
+            self.response.write("""
+            <table><tr>
+            """)
+            for c in daprops:
+                self.response.write("<th>"+c+"</th>")
+            self.response.write("""
+            </tr>
+            """)
+            BasicSearch=ndb.gql("Select * from {disKind} limit 50".format(disKind=disKind))
+            for b in BasicSearch:
+                self.response.write("""
+                 <tr>
+                """)
+                for c in daprops:
+                    davar=getattr(b,c)
+                    self.response.write("<td>"+davar+"</td>")
+                self.response.write("""
+                 </tr>
+                """)
+            self.response.write("</table>")
+
+            self.response.write(html2)            
+            
 @app.route('/<searchURL>',methods=['GET','POST'])    
 def RouteDef(searchURL):    
     app = webapp2.WSGIApplication([
     ("/test", Test),
+    ("/NDBViewer", NDBViewer),
     ]
     , searchURL=searchURL ) #when you paste in your old webapp2 handler make sure to remove 
     return webapp(app()) 
