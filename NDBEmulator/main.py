@@ -1,6 +1,8 @@
 import mock
 from flask import Flask
 from google.cloud import ndb
+from google.cloud.ndb import metadata
+
 import google.auth.credentials
 import os
 
